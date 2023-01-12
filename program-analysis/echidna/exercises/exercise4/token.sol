@@ -32,7 +32,11 @@ contract Token is Pausable {
     mapping(address => uint256) public balances;
 
     function transfer(address to, uint256 value) public ifNotPaused {
+
         balances[msg.sender] -= value;
         balances[to] += value;
+
+        assert(balances[msg.sender] <= balances[msg.sender]+value);
+        assert(balances[to] >= balances[to]-value);
     }
 }
