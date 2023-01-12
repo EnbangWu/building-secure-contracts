@@ -1,4 +1,4 @@
-import "mintable.sol";
+import "./mintable.sol";
 
 /// @dev to run: $ echidna-test solution.sol --contract TestToken
 contract TestToken is MintableToken {

@@ -1,4 +1,4 @@
-import "token.sol";
+import "./token.sol";
 
 contract MintableToken is Token{
 
@@ -12,6 +12,8 @@ contract MintableToken is Token{
     function mint(uint value) isOwner() public {
 
         require(int(value) + totalMinted < totalMintable);
+        require(int(value) + totalMinted >= int(value));
+        require(int(value) + totalMinted >= totalMinted);
         totalMinted += int(value);
 
         balances[msg.sender] += value;
